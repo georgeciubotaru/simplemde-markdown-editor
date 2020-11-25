@@ -1394,6 +1394,8 @@ SimpleMDE.prototype.codeMirrorInstance = function() {
 	return self;
 }
 
+SimpleMDE.prototype.replaceSelection = _replaceSelection;
+
 /**
  * Default markdown render.
  */
@@ -1712,7 +1714,6 @@ SimpleMDE.prototype.createToolbar = function(items) {
 			if(item === "|") {
 				el = createSep();
 			} else {
-				console.log('create icon', self);
 				el = createIcon(item, self, self.options.toolbarTips, self.options.shortcuts);
 			}
 
