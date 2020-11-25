@@ -94,7 +94,7 @@ function fixShortcut(name) {
 /**
  * Create icon element for toolbar.
  */
-function createIcon(options, editor, enableTooltips, shortcuts) {
+function createIcon(options, enableTooltips, shortcuts) {
 	options = options || {};
 	var el = document.createElement("a");
 	enableTooltips = (enableTooltips == undefined) ? true : enableTooltips;
@@ -111,7 +111,7 @@ function createIcon(options, editor, enableTooltips, shortcuts) {
 	// create element hook
 	if(options.onCreate && typeof options.onCreate === "function") {
 		console.log('bind on create', el, editor);
-		el = options.onCreate.call(this, el, editor);
+		el = options.onCreate.call(this, el);
 	}
 
 	el.tabIndex = -1;
@@ -1391,6 +1391,9 @@ function SimpleMDE(options) {
 	}
 }
 
+// support replaceSelection to user
+SimpleMDE.prototype.replaceSelection = _replaceSelection;
+
 /**
  * Default markdown render.
  */
@@ -1709,7 +1712,7 @@ SimpleMDE.prototype.createToolbar = function(items) {
 			if(item === "|") {
 				el = createSep();
 			} else {
-				el = createIcon(item, self, self.options.toolbarTips, self.options.shortcuts);
+				el = createIcon(item, self.options.toolbarTips, self.options.shortcuts);
 			}
 
 			// bind events, special for info
