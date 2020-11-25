@@ -1714,7 +1714,7 @@ SimpleMDE.prototype.createToolbar = function(items) {
 			if(item === "|") {
 				el = createSep();
 			} else {
-				el = createIcon(item, self, self.options.toolbarTips, self.options.shortcuts);
+				el = createIcon(self, item, self, self.options.toolbarTips, self.options.shortcuts);
 			}
 
 			// bind events, special for info
