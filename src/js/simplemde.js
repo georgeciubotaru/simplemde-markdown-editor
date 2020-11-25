@@ -1716,7 +1716,7 @@ SimpleMDE.prototype.createToolbar = function(items) {
 				if(typeof item.action === "function") {
 					el.onclick = function(e) {
 						e.preventDefault();
-						item.action(self);
+						item.action(self, el);
 					};
 				} else if(typeof item.action === "string") {
 					el.href = item.action;
