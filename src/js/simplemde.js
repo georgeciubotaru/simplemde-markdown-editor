@@ -113,6 +113,8 @@ function createIcon(options, enableTooltips, shortcuts) {
 		el = options.onCreate.call(this, el);
 	}
 
+	console.log('bind options', this, options);
+
 	el.tabIndex = -1;
 	el.className = options.className;
 	return el;
@@ -1712,6 +1714,7 @@ SimpleMDE.prototype.createToolbar = function(items) {
 			if(item === "|") {
 				el = createSep();
 			} else {
+				console.log('create icon', self);
 				el = createIcon(item, self.options.toolbarTips, self.options.shortcuts);
 			}
 
