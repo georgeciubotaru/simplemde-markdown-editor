@@ -110,6 +110,7 @@ function createIcon(options, editor, enableTooltips, shortcuts) {
 
 	// create element hook
 	if(options.onCreate && typeof options.onCreate === "function") {
+		console.log('bind on create', el, editor);
 		el = options.onCreate.call(this, el, editor);
 	}
 
