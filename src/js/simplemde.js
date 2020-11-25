@@ -95,6 +95,7 @@ function fixShortcut(name) {
  * Create icon element for toolbar.
  */
 function createIcon(options, enableTooltips, shortcuts) {
+	let self = this;
 	options = options || {};
 	var el = document.createElement("a");
 	enableTooltips = (enableTooltips == undefined) ? true : enableTooltips;
@@ -110,7 +111,7 @@ function createIcon(options, enableTooltips, shortcuts) {
 
 	// create element hook
 	if(options.onCreate && typeof options.onCreate === "function") {
-		el = options.onCreate.call(this, el);
+		el = options.onCreate.call(self, el);
 	}
 
 	el.tabIndex = -1;
