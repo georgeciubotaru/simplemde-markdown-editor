@@ -1392,7 +1392,9 @@ function SimpleMDE(options) {
 }
 
 // support replaceSelection to user
-SimpleMDE.prototype.replaceSelection = _replaceSelection;
+SimpleMDE.prototype.replaceSelection = function(a,b,c,d){
+	_replaceSelection(a,b,c,d);
+}
 
 /**
  * Default markdown render.
