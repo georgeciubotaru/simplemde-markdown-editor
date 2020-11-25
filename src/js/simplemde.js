@@ -108,6 +108,11 @@ function createIcon(options, enableTooltips, shortcuts) {
 		}
 	}
 
+	// create element hook
+	if(options.onCreate && typeof options.onCreate === "function") {
+		el = options.onCreate.call(this, el);
+	}
+
 	el.tabIndex = -1;
 	el.className = options.className;
 	return el;
@@ -1326,7 +1331,6 @@ function SimpleMDE(options) {
 			}
 		}
 	}
-
 
 	// Handle status bar
 	if(!options.hasOwnProperty("status")) {
