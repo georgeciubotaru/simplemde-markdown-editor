@@ -110,7 +110,7 @@ function createIcon(options, editor, enableTooltips, shortcuts) {
 
 	// create element hook
 	if(options.onCreate && typeof options.onCreate === "function") {
-		el = options.onCreate.call(this, editor, el);
+		el = options.onCreate.call(this, el, editor);
 	}
 
 	el.tabIndex = -1;
