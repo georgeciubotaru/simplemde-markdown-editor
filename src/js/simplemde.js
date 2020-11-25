@@ -1362,10 +1362,6 @@ function SimpleMDE(options) {
 	// Merging the promptTexts, with the given options
 	options.promptTexts = promptTexts;
 
-	// Add replace selection property
-	options.editorInstance = this;
-
-
 	// Merging the blockStyles, with the given options
 	options.blockStyles = extend({}, blockStyles, options.blockStyles || {});
 
@@ -1393,6 +1389,11 @@ function SimpleMDE(options) {
 	if(options.initialValue && (!this.options.autosave || this.options.autosave.foundSavedValue !== true)) {
 		this.value(options.initialValue);
 	}
+}
+
+SimpleMDE.prototype.codeMirrorInstance = function() {
+	let self = this;
+	return self;
 }
 
 /**
